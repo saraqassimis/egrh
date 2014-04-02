@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateFormationTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateFormationLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{formationController.selected.id}" title="#{bundle.CreateFormationTitle_id}" required="true" requiredMessage="#{bundle.CreateFormationRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateFormationLabel_libelle}" for="libelle" />
+                    <h:inputText id="libelle" value="#{formationController.selected.libelle}" title="#{bundle.CreateFormationTitle_libelle}" />
+                    <h:outputLabel value="#{bundle.CreateFormationLabel_prixParPersonne}" for="prixParPersonne" />
+                    <h:inputText id="prixParPersonne" value="#{formationController.selected.prixParPersonne}" title="#{bundle.CreateFormationTitle_prixParPersonne}" />
+                    <h:outputLabel value="#{bundle.CreateFormationLabel_duree}" for="duree" />
+                    <h:inputText id="duree" value="#{formationController.selected.duree}" title="#{bundle.CreateFormationTitle_duree}" />
+                    <h:outputLabel value="#{bundle.CreateFormationLabel_categorie}" for="categorie" />
+                    <h:inputText id="categorie" value="#{formationController.selected.categorie}" title="#{bundle.CreateFormationTitle_categorie}" />
+                    <h:outputLabel value="#{bundle.CreateFormationLabel_niveau}" for="niveau" />
+                    <h:inputText id="niveau" value="#{formationController.selected.niveau}" title="#{bundle.CreateFormationTitle_niveau}" />
+                    <h:outputLabel value="#{bundle.CreateFormationLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{formationController.selected.description}" title="#{bundle.CreateFormationTitle_description}" />
+                    <h:outputLabel value="#{bundle.CreateFormationLabel_organisme}" for="organisme" />
+                    <h:selectOneMenu id="organisme" value="#{formationController.selected.organisme}" title="#{bundle.CreateFormationTitle_organisme}" required="true" requiredMessage="#{bundle.CreateFormationRequiredMessage_organisme}">
+                        <f:selectItems value="#{organismeController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateFormationLabel_competence}" for="competence" />
+                    <h:selectOneMenu id="competence" value="#{formationController.selected.competence}" title="#{bundle.CreateFormationTitle_competence}" required="true" requiredMessage="#{bundle.CreateFormationRequiredMessage_competence}">
+                        <f:selectItems value="#{competenceController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{formationController.create}" value="#{bundle.CreateFormationSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{formationController.prepareList}" value="#{bundle.CreateFormationShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateFormationIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

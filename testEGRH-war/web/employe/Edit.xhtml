@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditEmployeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditEmployeLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{employeController.selected.id}" title="#{bundle.EditEmployeTitle_id}" required="true" requiredMessage="#{bundle.EditEmployeRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditEmployeLabel_nom}" for="nom" />
+                    <h:inputText id="nom" value="#{employeController.selected.nom}" title="#{bundle.EditEmployeTitle_nom}" />
+                    <h:outputLabel value="#{bundle.EditEmployeLabel_prenom}" for="prenom" />
+                    <h:inputText id="prenom" value="#{employeController.selected.prenom}" title="#{bundle.EditEmployeTitle_prenom}" />
+                    <h:outputLabel value="#{bundle.EditEmployeLabel_telephonePro}" for="telephonePro" />
+                    <h:inputText id="telephonePro" value="#{employeController.selected.telephonePro}" title="#{bundle.EditEmployeTitle_telephonePro}" />
+                    <h:outputLabel value="#{bundle.EditEmployeLabel_telephoneMobile}" for="telephoneMobile" />
+                    <h:inputText id="telephoneMobile" value="#{employeController.selected.telephoneMobile}" title="#{bundle.EditEmployeTitle_telephoneMobile}" />
+                    <h:outputLabel value="#{bundle.EditEmployeLabel_telephonePerso}" for="telephonePerso" />
+                    <h:inputText id="telephonePerso" value="#{employeController.selected.telephonePerso}" title="#{bundle.EditEmployeTitle_telephonePerso}" />
+                    <h:outputLabel value="#{bundle.EditEmployeLabel_fax}" for="fax" />
+                    <h:inputText id="fax" value="#{employeController.selected.fax}" title="#{bundle.EditEmployeTitle_fax}" />
+                    <h:outputLabel value="#{bundle.EditEmployeLabel_dateNaissance}" for="dateNaissance" />
+                    <h:inputText id="dateNaissance" value="#{employeController.selected.dateNaissance}" title="#{bundle.EditEmployeTitle_dateNaissance}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditEmployeLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{employeController.selected.email}" title="#{bundle.EditEmployeTitle_email}" />
+                    <h:outputLabel value="#{bundle.EditEmployeLabel_adrRue}" for="adrRue" />
+                    <h:inputText id="adrRue" value="#{employeController.selected.adrRue}" title="#{bundle.EditEmployeTitle_adrRue}" />
+                    <h:outputLabel value="#{bundle.EditEmployeLabel_adrVille}" for="adrVille" />
+                    <h:inputText id="adrVille" value="#{employeController.selected.adrVille}" title="#{bundle.EditEmployeTitle_adrVille}" />
+                    <h:outputLabel value="#{bundle.EditEmployeLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{employeController.selected.description}" title="#{bundle.EditEmployeTitle_description}" />
+                    <h:outputLabel value="#{bundle.EditEmployeLabel_nbEnfants}" for="nbEnfants" />
+                    <h:inputText id="nbEnfants" value="#{employeController.selected.nbEnfants}" title="#{bundle.EditEmployeTitle_nbEnfants}" />
+                    <h:outputLabel value="#{bundle.EditEmployeLabel_dateEntreeFonction}" for="dateEntreeFonction" />
+                    <h:inputText id="dateEntreeFonction" value="#{employeController.selected.dateEntreeFonction}" title="#{bundle.EditEmployeTitle_dateEntreeFonction}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditEmployeLabel_civilite}" for="civilite" />
+                    <h:inputText id="civilite" value="#{employeController.selected.civilite}" title="#{bundle.EditEmployeTitle_civilite}" />
+                    <h:outputLabel value="#{bundle.EditEmployeLabel_numeroAssuranceSociale}" for="numeroAssuranceSociale" />
+                    <h:inputText id="numeroAssuranceSociale" value="#{employeController.selected.numeroAssuranceSociale}" title="#{bundle.EditEmployeTitle_numeroAssuranceSociale}" />
+                    <h:outputLabel value="#{bundle.EditEmployeLabel_dateEmbauche}" for="dateEmbauche" />
+                    <h:inputText id="dateEmbauche" value="#{employeController.selected.dateEmbauche}" title="#{bundle.EditEmployeTitle_dateEmbauche}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditEmployeLabel_dateDepart}" for="dateDepart" />
+                    <h:inputText id="dateDepart" value="#{employeController.selected.dateDepart}" title="#{bundle.EditEmployeTitle_dateDepart}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditEmployeLabel_poste}" for="poste" />
+                    <h:selectOneMenu id="poste" value="#{employeController.selected.poste}" title="#{bundle.EditEmployeTitle_poste}" required="true" requiredMessage="#{bundle.EditEmployeRequiredMessage_poste}">
+                        <f:selectItems value="#{posteController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{employeController.update}" value="#{bundle.EditEmployeSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditEmployeViewLink}"/>
+                <br />
+                <h:commandLink action="#{employeController.prepareList}" value="#{bundle.EditEmployeShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditEmployeIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

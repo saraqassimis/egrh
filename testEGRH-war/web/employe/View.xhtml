@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewEmployeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewEmployeLabel_id}"/>
+                    <h:outputText value="#{employeController.selected.id}" title="#{bundle.ViewEmployeTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewEmployeLabel_nom}"/>
+                    <h:outputText value="#{employeController.selected.nom}" title="#{bundle.ViewEmployeTitle_nom}"/>
+                    <h:outputText value="#{bundle.ViewEmployeLabel_prenom}"/>
+                    <h:outputText value="#{employeController.selected.prenom}" title="#{bundle.ViewEmployeTitle_prenom}"/>
+                    <h:outputText value="#{bundle.ViewEmployeLabel_telephonePro}"/>
+                    <h:outputText value="#{employeController.selected.telephonePro}" title="#{bundle.ViewEmployeTitle_telephonePro}"/>
+                    <h:outputText value="#{bundle.ViewEmployeLabel_telephoneMobile}"/>
+                    <h:outputText value="#{employeController.selected.telephoneMobile}" title="#{bundle.ViewEmployeTitle_telephoneMobile}"/>
+                    <h:outputText value="#{bundle.ViewEmployeLabel_telephonePerso}"/>
+                    <h:outputText value="#{employeController.selected.telephonePerso}" title="#{bundle.ViewEmployeTitle_telephonePerso}"/>
+                    <h:outputText value="#{bundle.ViewEmployeLabel_fax}"/>
+                    <h:outputText value="#{employeController.selected.fax}" title="#{bundle.ViewEmployeTitle_fax}"/>
+                    <h:outputText value="#{bundle.ViewEmployeLabel_dateNaissance}"/>
+                    <h:outputText value="#{employeController.selected.dateNaissance}" title="#{bundle.ViewEmployeTitle_dateNaissance}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewEmployeLabel_email}"/>
+                    <h:outputText value="#{employeController.selected.email}" title="#{bundle.ViewEmployeTitle_email}"/>
+                    <h:outputText value="#{bundle.ViewEmployeLabel_adrRue}"/>
+                    <h:outputText value="#{employeController.selected.adrRue}" title="#{bundle.ViewEmployeTitle_adrRue}"/>
+                    <h:outputText value="#{bundle.ViewEmployeLabel_adrVille}"/>
+                    <h:outputText value="#{employeController.selected.adrVille}" title="#{bundle.ViewEmployeTitle_adrVille}"/>
+                    <h:outputText value="#{bundle.ViewEmployeLabel_description}"/>
+                    <h:outputText value="#{employeController.selected.description}" title="#{bundle.ViewEmployeTitle_description}"/>
+                    <h:outputText value="#{bundle.ViewEmployeLabel_nbEnfants}"/>
+                    <h:outputText value="#{employeController.selected.nbEnfants}" title="#{bundle.ViewEmployeTitle_nbEnfants}"/>
+                    <h:outputText value="#{bundle.ViewEmployeLabel_dateEntreeFonction}"/>
+                    <h:outputText value="#{employeController.selected.dateEntreeFonction}" title="#{bundle.ViewEmployeTitle_dateEntreeFonction}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewEmployeLabel_civilite}"/>
+                    <h:outputText value="#{employeController.selected.civilite}" title="#{bundle.ViewEmployeTitle_civilite}"/>
+                    <h:outputText value="#{bundle.ViewEmployeLabel_numeroAssuranceSociale}"/>
+                    <h:outputText value="#{employeController.selected.numeroAssuranceSociale}" title="#{bundle.ViewEmployeTitle_numeroAssuranceSociale}"/>
+                    <h:outputText value="#{bundle.ViewEmployeLabel_dateEmbauche}"/>
+                    <h:outputText value="#{employeController.selected.dateEmbauche}" title="#{bundle.ViewEmployeTitle_dateEmbauche}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewEmployeLabel_dateDepart}"/>
+                    <h:outputText value="#{employeController.selected.dateDepart}" title="#{bundle.ViewEmployeTitle_dateDepart}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewEmployeLabel_poste}"/>
+                    <h:outputText value="#{employeController.selected.poste}" title="#{bundle.ViewEmployeTitle_poste}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{employeController.destroyAndView}" value="#{bundle.ViewEmployeDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewEmployeEditLink}"/>
+                <br />
+                <h:commandLink action="#{employeController.prepareCreate}" value="#{bundle.ViewEmployeCreateLink}" />
+                <br />
+                <h:commandLink action="#{employeController.prepareList}" value="#{bundle.ViewEmployeShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewEmployeIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewEvalueremployeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewEvalueremployeLabel_id}"/>
+                    <h:outputText value="#{evalueremployeController.selected.id}" title="#{bundle.ViewEvalueremployeTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewEvalueremployeLabel_qualite}"/>
+                    <h:outputText value="#{evalueremployeController.selected.qualite}" title="#{bundle.ViewEvalueremployeTitle_qualite}"/>
+                    <h:outputText value="#{bundle.ViewEvalueremployeLabel_rythmeTravail}"/>
+                    <h:outputText value="#{evalueremployeController.selected.rythmeTravail}" title="#{bundle.ViewEvalueremployeTitle_rythmeTravail}"/>
+                    <h:outputText value="#{bundle.ViewEvalueremployeLabel_capaciteAdaptation}"/>
+                    <h:outputText value="#{evalueremployeController.selected.capaciteAdaptation}" title="#{bundle.ViewEvalueremployeTitle_capaciteAdaptation}"/>
+                    <h:outputText value="#{bundle.ViewEvalueremployeLabel_discretionConfidentalite}"/>
+                    <h:outputText value="#{evalueremployeController.selected.discretionConfidentalite}" title="#{bundle.ViewEvalueremployeTitle_discretionConfidentalite}"/>
+                    <h:outputText value="#{bundle.ViewEvalueremployeLabel_espritInitiativeInovation}"/>
+                    <h:outputText value="#{evalueremployeController.selected.espritInitiativeInovation}" title="#{bundle.ViewEvalueremployeTitle_espritInitiativeInovation}"/>
+                    <h:outputText value="#{bundle.ViewEvalueremployeLabel_methodeOrde}"/>
+                    <h:outputText value="#{evalueremployeController.selected.methodeOrde}" title="#{bundle.ViewEvalueremployeTitle_methodeOrde}"/>
+                    <h:outputText value="#{bundle.ViewEvalueremployeLabel_ponctualite}"/>
+                    <h:outputText value="#{evalueremployeController.selected.ponctualite}" title="#{bundle.ViewEvalueremployeTitle_ponctualite}"/>
+                    <h:outputText value="#{bundle.ViewEvalueremployeLabel_relationInterpersonnelle}"/>
+                    <h:outputText value="#{evalueremployeController.selected.relationInterpersonnelle}" title="#{bundle.ViewEvalueremployeTitle_relationInterpersonnelle}"/>
+                    <h:outputText value="#{bundle.ViewEvalueremployeLabel_sensResponsabilite}"/>
+                    <h:outputText value="#{evalueremployeController.selected.sensResponsabilite}" title="#{bundle.ViewEvalueremployeTitle_sensResponsabilite}"/>
+                    <h:outputText value="#{bundle.ViewEvalueremployeLabel_communication}"/>
+                    <h:outputText value="#{evalueremployeController.selected.communication}" title="#{bundle.ViewEvalueremployeTitle_communication}"/>
+                    <h:outputText value="#{bundle.ViewEvalueremployeLabel_dateEvaluation}"/>
+                    <h:outputText value="#{evalueremployeController.selected.dateEvaluation}" title="#{bundle.ViewEvalueremployeTitle_dateEvaluation}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewEvalueremployeLabel_commentaire}"/>
+                    <h:outputText value="#{evalueremployeController.selected.commentaire}" title="#{bundle.ViewEvalueremployeTitle_commentaire}"/>
+                    <h:outputText value="#{bundle.ViewEvalueremployeLabel_note}"/>
+                    <h:outputText value="#{evalueremployeController.selected.note}" title="#{bundle.ViewEvalueremployeTitle_note}"/>
+                    <h:outputText value="#{bundle.ViewEvalueremployeLabel_empid}"/>
+                    <h:outputText value="#{evalueremployeController.selected.empid}" title="#{bundle.ViewEvalueremployeTitle_empid}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{evalueremployeController.destroyAndView}" value="#{bundle.ViewEvalueremployeDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewEvalueremployeEditLink}"/>
+                <br />
+                <h:commandLink action="#{evalueremployeController.prepareCreate}" value="#{bundle.ViewEvalueremployeCreateLink}" />
+                <br />
+                <h:commandLink action="#{evalueremployeController.prepareList}" value="#{bundle.ViewEvalueremployeShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewEvalueremployeIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

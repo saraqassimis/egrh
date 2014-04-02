@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+   <div class="content-box-large">
+                <div class="panel-body">
+                    <div id="rootwizard">
+                         <fieldset>
+                                        <legend>Ajouter Employé</legend><br></br>
+                        <div class="navbar">
+                            <div class="navbar-inner">
+                                <div >
+                                    <ul class="nav nav-pills">
+                                        <li class="active"><a href="#tab1" data-toggle="tab">First</a></li>
+                                        <li><a href="#tab2" data-toggle="tab">Second</a></li>
+                                        <li><a href="#tab3" data-toggle="tab">Third</a></li>
+                                        <li><a href="#tab4" data-toggle="tab">Fourth</a></li>
+                                        <li><a href="#tab5" data-toggle="tab">Emploi precedent</a></li>
+                                        <li><a href="#tab6" data-toggle="tab">Diplome</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab1">
+                                <h:inputText id="id" value="#{employeController.selected.id}" title="#{bundle.CreateEmployeTitle_id}" />
+                                <div class="row">
+
+                                    <div  class="col-sm-6">
+                                        <label>Nom </label>
+                                        <h:inputText id="nom" value="#{employeController.selected.nom}" title="nom" class="form-control"  autocomplete="false"/>
+                                    </div> 
+
+
+                                    <div class="col-sm-6">
+                                        <label >Prenom </label>
+                                        <h:inputText id="prenom" value="#{employeController.selected.prenom}" title="prenom" class="form-control" autocomplete="false"/>
+
+                                    </div>
+                                </div> 
+                                <div class="row">
+
+                                    <div class="col-sm-6">
+                                        <label>Civilité </label>
+
+
+                                        <select id="civilte" value="#{employeController.selected.civilite}" title="civilie" class="form-control">
+                                            <option value="">-- Select --</option>
+                                            <option value="Mr">
+                                                Mr
+                                            </option>
+                                            <option value="Mlle">
+                                                Mlle
+                                            </option>
+                                            <option value="Mme">
+                                                Madame
+                                            </option>
+
+                                        </select>
+
+
+
+                                    </div>
+                                    <div class="col-sm-6">
+
+                                        <label>Numero d'assurance </label>
+
+                                        <h:inputText id="mdp" value="#{employeController.selected.numeroAssuranceSociale}" title="mdp" class="form-control" autocomplete="false"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div  class="col-sm-6 " ><i class="glyphicon glyphicon-calendar"></i>
+                                        <label >Date naissance *</label>
+                                        <h:inputText  id="dateNaissance" value="#{employeController.selected.dateNaissance}" title="#{bundle.CreateEmployeTitle_dateNaissance}" class="form-control  datep" >
+                                            <f:convertDateTime pattern="dd-MM-yyyy" />
+                                        </h:inputText>
+
+                                        <p class="note">
+                                            Data format **/**/****
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-6 ">
+                                        <label>Nombre d'enfants <span class="required">*</span></label>
+                                        <div>
+                                            <select  value="#{employeController.selected.nbEnfants}" title="nombre enfant" class="form-control">
+                                                <option value="">-- Select --</option>
+                                                <option value="1">
+                                                    1
+                                                </option>
+                                                <option value="2">
+                                                    2
+                                                </option>
+                                                <option value="3">
+                                                    3
+                                                </option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab2">
+                                <div class="row">
+
+                                    <div class="col-sm-6" >
+                                        <label>Telephone professionel </label>
+                                        <h:inputText id="tel_pro" value="#{employeController.selected.telephonePro}" title="tel_pero" class="form-control" autocomplete="false"/>
+                                    </div>
+
+
+
+                                    <div class="col-sm-6">
+                                        <label>Telephone personnel </label>
+                                        <h:inputText id="tel_perso" value="#{employeController.selected.telephonePerso}" title="tel_pero" class="form-control" autocomplete="false"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div class="col-sm-6" >
+                                        <label>Email </label>
+                                        <h:inputText id="email" value="#{employeController.selected.email}" title="email" class="form-control" autocomplete="false"/>
+                                    </div>
+                                    <div  class="col-sm-6">
+
+                                        <label>Telephone mobile </label>
+                                        <h:inputText id="tel_mobile" value="#{employeController.selected.telephoneMobile}" title="tel_mobile" class="form-control" autocomplete="false"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label>Fax </label>
+                                        <h:inputText id="fax" value="#{employeController.selected.fax}" title="fax" class="form-control" autocomplete="false"/>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label>Adresse </label>
+                                        <h:inputText id="ville" value="#{employeController.selected.adrRue}" title="ville" class="form-control" autocomplete="false"/>
+                                    </div>
+                                </div> 
+
+                            </div>
+                            <div class="tab-pane" id="tab3">
+                                <div class="row">
+
+                                    <div  class="col-sm-6">
+                                        <label>Poste </label>
+
+
+                                        <h:selectOneMenu class="form-control" id="posid" value="#{employeController.selected.poste}" title="#{bundle.CreateEmployeTitle_posid}" >
+                                            <f:selectItems value="#{posteController.itemsAvailableSelectOne}"/>
+                                        </h:selectOneMenu>
+                                    </div>
+                                    <div class="col-md-6 pull-right" ><i class="glyphicon glyphicon-calendar"></i>
+                                        <label >Date d'entrée en fonction *</label>
+
+                                        <h:inputText class="form-control datep" id="dateEntreeFonction" value="#{employeController.selected.dateEntreeFonction}" title="#{bundle.CreateEmployeTitle_dateEntreeFonction}" >
+                                            <f:convertDateTime pattern="dd-MM-yyyy" />
+                                        </h:inputText>
+
+                                        <p class="note">
+                                            Data format **/**/****
+                                        </p>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+
+                                    <div class="col-md-6 " ><i class="glyphicon glyphicon-calendar"></i>
+                                        <label>Date embauche *</label>
+                                        <h:inputText  class="form-control datep" id="dateEmbauche" value="#{employeController.selected.dateEmbauche}" title="#{bundle.CreateEmployeTitle_dateEmbauche}" >
+                                            <f:convertDateTime pattern="dd-MM-yyyy" />
+                                        </h:inputText>
+
+                                        <p class="note">
+                                            Data format **/**/****
+                                        </p>
+                                    </div>
+
+
+                                    <div class="col-md-6 " ><i class="glyphicon glyphicon-calendar"></i>
+                                        <label >Date depart *</label>
+
+                                        <h:inputText class="form-control datep" id="dateDepart" value="#{employeController.selected.dateDepart}" title="#{bundle.CreateEmployeTitle_dateDepart}" >
+                                            <f:convertDateTime pattern="dd-MM-yyyy" />
+                                        </h:inputText>
+
+                                        <p class="note">
+                                            Data format **/**/****
+                                        </p>
+                                    </div>
+
+                                </div> 
+                            </div>
+                            <div class="tab-pane" id="tab4">
+                                <div class="col-md-12 " >
+                                <label>Description </label>
+                                <div >
+
+                                    <h:inputTextarea id ="description" value="#{employeController.selected.description}" title="description" class="form-control"  />
+
+                                </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <br />
+                                        
+                                        <h:commandLink  class="btn btn-primary" action="#{employeController.create}" value="#{bundle.CreateEmployeSaveLink}" />
+                                   
+                                </div>
+
+                            </div>
+                            <div class="tab-pane" id="tab5">
+
+                            </div>
+                            <div class="tab-pane" id="tab6">
+
+                            </div>
+
+                            <ul class="pager wizard">
+                                <li class="previous first disabled" style="display:none;"><a href="javascript:void(0);">First</a></li>
+                                <li class="previous disabled"><a href="javascript:void(0);">Previous</a></li>
+                                <li class="next last" style="display:none;"><a href="javascript:void(0);">Last</a></li>
+                                <li class="next"><a href="javascript:void(0);">Next</a></li>
+                            </ul>
+                        </div>	
+                         </fieldset>
+                    </div>
+                </div>
+</div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

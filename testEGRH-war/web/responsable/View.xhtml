@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewResponsableTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewResponsableLabel_id}"/>
+                    <h:outputText value="#{responsableController.selected.id}" title="#{bundle.ViewResponsableTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewResponsableLabel_entid}"/>
+                    <h:outputText value="#{responsableController.selected.entid}" title="#{bundle.ViewResponsableTitle_entid}"/>
+                    <h:outputText value="#{bundle.ViewResponsableLabel_nom}"/>
+                    <h:outputText value="#{responsableController.selected.nom}" title="#{bundle.ViewResponsableTitle_nom}"/>
+                    <h:outputText value="#{bundle.ViewResponsableLabel_prenom}"/>
+                    <h:outputText value="#{responsableController.selected.prenom}" title="#{bundle.ViewResponsableTitle_prenom}"/>
+                    <h:outputText value="#{bundle.ViewResponsableLabel_email}"/>
+                    <h:outputText value="#{responsableController.selected.email}" title="#{bundle.ViewResponsableTitle_email}"/>
+                    <h:outputText value="#{bundle.ViewResponsableLabel_telephone}"/>
+                    <h:outputText value="#{responsableController.selected.telephone}" title="#{bundle.ViewResponsableTitle_telephone}"/>
+                    <h:outputText value="#{bundle.ViewResponsableLabel_role}"/>
+                    <h:outputText value="#{responsableController.selected.role}" title="#{bundle.ViewResponsableTitle_role}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{responsableController.destroyAndView}" value="#{bundle.ViewResponsableDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewResponsableEditLink}"/>
+                <br />
+                <h:commandLink action="#{responsableController.prepareCreate}" value="#{bundle.ViewResponsableCreateLink}" />
+                <br />
+                <h:commandLink action="#{responsableController.prepareList}" value="#{bundle.ViewResponsableShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewResponsableIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

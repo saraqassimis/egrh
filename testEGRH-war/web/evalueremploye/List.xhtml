@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListEvalueremployeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListEvalueremployeEmpty}" rendered="#{evalueremployeController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{evalueremployeController.items.rowCount > 0}">
+                    <h:outputText value="#{evalueremployeController.pagination.pageFirstItem + 1}..#{evalueremployeController.pagination.pageLastItem + 1}/#{evalueremployeController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{evalueremployeController.previous}" value="#{bundle.Previous} #{evalueremployeController.pagination.pageSize}" rendered="#{evalueremployeController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{evalueremployeController.next}" value="#{bundle.Next} #{evalueremployeController.pagination.pageSize}" rendered="#{evalueremployeController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{evalueremployeController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvalueremployeTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvalueremployeTitle_qualite}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.qualite}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvalueremployeTitle_rythmeTravail}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.rythmeTravail}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvalueremployeTitle_capaciteAdaptation}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.capaciteAdaptation}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvalueremployeTitle_discretionConfidentalite}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.discretionConfidentalite}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvalueremployeTitle_espritInitiativeInovation}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.espritInitiativeInovation}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvalueremployeTitle_methodeOrde}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.methodeOrde}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvalueremployeTitle_ponctualite}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ponctualite}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvalueremployeTitle_relationInterpersonnelle}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.relationInterpersonnelle}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvalueremployeTitle_sensResponsabilite}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.sensResponsabilite}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvalueremployeTitle_communication}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.communication}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvalueremployeTitle_dateEvaluation}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateEvaluation}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvalueremployeTitle_commentaire}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.commentaire}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvalueremployeTitle_note}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.note}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEvalueremployeTitle_empid}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.empid}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{evalueremployeController.prepareView}" value="#{bundle.ListEvalueremployeViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{evalueremployeController.prepareEdit}" value="#{bundle.ListEvalueremployeEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{evalueremployeController.destroy}" value="#{bundle.ListEvalueremployeDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{evalueremployeController.prepareCreate}" value="#{bundle.ListEvalueremployeCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListEvalueremployeIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

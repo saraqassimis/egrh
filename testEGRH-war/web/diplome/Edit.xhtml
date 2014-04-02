@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditDiplomeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditDiplomeLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{diplomeController.selected.id}" title="#{bundle.EditDiplomeTitle_id}" required="true" requiredMessage="#{bundle.EditDiplomeRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditDiplomeLabel_denomination}" for="denomination" />
+                    <h:inputText id="denomination" value="#{diplomeController.selected.denomination}" title="#{bundle.EditDiplomeTitle_denomination}" />
+                    <h:outputLabel value="#{bundle.EditDiplomeLabel_etablissement}" for="etablissement" />
+                    <h:inputText id="etablissement" value="#{diplomeController.selected.etablissement}" title="#{bundle.EditDiplomeTitle_etablissement}" />
+                    <h:outputLabel value="#{bundle.EditDiplomeLabel_anne}" for="anne" />
+                    <h:inputText id="anne" value="#{diplomeController.selected.anne}" title="#{bundle.EditDiplomeTitle_anne}" />
+                    <h:outputLabel value="#{bundle.EditDiplomeLabel_niveauEtude}" for="niveauEtude" />
+                    <h:inputText id="niveauEtude" value="#{diplomeController.selected.niveauEtude}" title="#{bundle.EditDiplomeTitle_niveauEtude}" />
+                    <h:outputLabel value="#{bundle.EditDiplomeLabel_employe}" for="employe" />
+                    <h:selectOneMenu id="employe" value="#{diplomeController.selected.employe}" title="#{bundle.EditDiplomeTitle_employe}" required="true" requiredMessage="#{bundle.EditDiplomeRequiredMessage_employe}">
+                        <f:selectItems value="#{employeController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{diplomeController.update}" value="#{bundle.EditDiplomeSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditDiplomeViewLink}"/>
+                <br />
+                <h:commandLink action="#{diplomeController.prepareList}" value="#{bundle.EditDiplomeShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditDiplomeIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

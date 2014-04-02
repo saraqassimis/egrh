@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateEvalueremployeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateEvalueremployeLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{evalueremployeController.selected.id}" title="#{bundle.CreateEvalueremployeTitle_id}" required="true" requiredMessage="#{bundle.CreateEvalueremployeRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateEvalueremployeLabel_qualite}" for="qualite" />
+                    <h:inputText id="qualite" value="#{evalueremployeController.selected.qualite}" title="#{bundle.CreateEvalueremployeTitle_qualite}" />
+                    <h:outputLabel value="#{bundle.CreateEvalueremployeLabel_rythmeTravail}" for="rythmeTravail" />
+                    <h:inputText id="rythmeTravail" value="#{evalueremployeController.selected.rythmeTravail}" title="#{bundle.CreateEvalueremployeTitle_rythmeTravail}" />
+                    <h:outputLabel value="#{bundle.CreateEvalueremployeLabel_capaciteAdaptation}" for="capaciteAdaptation" />
+                    <h:inputText id="capaciteAdaptation" value="#{evalueremployeController.selected.capaciteAdaptation}" title="#{bundle.CreateEvalueremployeTitle_capaciteAdaptation}" />
+                    <h:outputLabel value="#{bundle.CreateEvalueremployeLabel_discretionConfidentalite}" for="discretionConfidentalite" />
+                    <h:inputText id="discretionConfidentalite" value="#{evalueremployeController.selected.discretionConfidentalite}" title="#{bundle.CreateEvalueremployeTitle_discretionConfidentalite}" />
+                    <h:outputLabel value="#{bundle.CreateEvalueremployeLabel_espritInitiativeInovation}" for="espritInitiativeInovation" />
+                    <h:inputText id="espritInitiativeInovation" value="#{evalueremployeController.selected.espritInitiativeInovation}" title="#{bundle.CreateEvalueremployeTitle_espritInitiativeInovation}" />
+                    <h:outputLabel value="#{bundle.CreateEvalueremployeLabel_methodeOrde}" for="methodeOrde" />
+                    <h:inputText id="methodeOrde" value="#{evalueremployeController.selected.methodeOrde}" title="#{bundle.CreateEvalueremployeTitle_methodeOrde}" />
+                    <h:outputLabel value="#{bundle.CreateEvalueremployeLabel_ponctualite}" for="ponctualite" />
+                    <h:inputText id="ponctualite" value="#{evalueremployeController.selected.ponctualite}" title="#{bundle.CreateEvalueremployeTitle_ponctualite}" />
+                    <h:outputLabel value="#{bundle.CreateEvalueremployeLabel_relationInterpersonnelle}" for="relationInterpersonnelle" />
+                    <h:inputText id="relationInterpersonnelle" value="#{evalueremployeController.selected.relationInterpersonnelle}" title="#{bundle.CreateEvalueremployeTitle_relationInterpersonnelle}" />
+                    <h:outputLabel value="#{bundle.CreateEvalueremployeLabel_sensResponsabilite}" for="sensResponsabilite" />
+                    <h:inputText id="sensResponsabilite" value="#{evalueremployeController.selected.sensResponsabilite}" title="#{bundle.CreateEvalueremployeTitle_sensResponsabilite}" />
+                    <h:outputLabel value="#{bundle.CreateEvalueremployeLabel_communication}" for="communication" />
+                    <h:inputText id="communication" value="#{evalueremployeController.selected.communication}" title="#{bundle.CreateEvalueremployeTitle_communication}" />
+                    <h:outputLabel value="#{bundle.CreateEvalueremployeLabel_dateEvaluation}" for="dateEvaluation" />
+                    <h:inputText id="dateEvaluation" value="#{evalueremployeController.selected.dateEvaluation}" title="#{bundle.CreateEvalueremployeTitle_dateEvaluation}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateEvalueremployeLabel_commentaire}" for="commentaire" />
+                    <h:inputText id="commentaire" value="#{evalueremployeController.selected.commentaire}" title="#{bundle.CreateEvalueremployeTitle_commentaire}" />
+                    <h:outputLabel value="#{bundle.CreateEvalueremployeLabel_note}" for="note" />
+                    <h:inputText id="note" value="#{evalueremployeController.selected.note}" title="#{bundle.CreateEvalueremployeTitle_note}" />
+                    <h:outputLabel value="#{bundle.CreateEvalueremployeLabel_empid}" for="empid" />
+                    <h:selectOneMenu id="empid" value="#{evalueremployeController.selected.empid}" title="#{bundle.CreateEvalueremployeTitle_empid}" required="true" requiredMessage="#{bundle.CreateEvalueremployeRequiredMessage_empid}">
+                        <f:selectItems value="#{employeController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{evalueremployeController.create}" value="#{bundle.CreateEvalueremployeSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{evalueremployeController.prepareList}" value="#{bundle.CreateEvalueremployeShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateEvalueremployeIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

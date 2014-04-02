@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateSessionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateSessionLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{sessionController.selected.id}" title="#{bundle.CreateSessionTitle_id}" required="true" requiredMessage="#{bundle.CreateSessionRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateSessionLabel_plaid}" for="plaid" />
+                    <h:inputText id="plaid" value="#{sessionController.selected.plaid}" title="#{bundle.CreateSessionTitle_plaid}" required="true" requiredMessage="#{bundle.CreateSessionRequiredMessage_plaid}"/>
+                    <h:outputLabel value="#{bundle.CreateSessionLabel_forid}" for="forid" />
+                    <h:inputText id="forid" value="#{sessionController.selected.forid}" title="#{bundle.CreateSessionTitle_forid}" required="true" requiredMessage="#{bundle.CreateSessionRequiredMessage_forid}"/>
+                    <h:outputLabel value="#{bundle.CreateSessionLabel_dateDebut}" for="dateDebut" />
+                    <h:inputText id="dateDebut" value="#{sessionController.selected.dateDebut}" title="#{bundle.CreateSessionTitle_dateDebut}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateSessionLabel_besoinformation}" for="besoinformation" />
+                    <h:selectOneMenu id="besoinformation" value="#{sessionController.selected.besoinformation}" title="#{bundle.CreateSessionTitle_besoinformation}" >
+                        <f:selectItems value="#{besoinformationController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{sessionController.create}" value="#{bundle.CreateSessionSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{sessionController.prepareList}" value="#{bundle.CreateSessionShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateSessionIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

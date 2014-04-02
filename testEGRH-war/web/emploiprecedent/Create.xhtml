@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+   <div class="content-box-large">
+                <div class="panel-body">
+                    <div id="rootwizard">
+                         <fieldset>
+                                        <legend>Ajouter Emploi precedent Et Diplome</legend><br></br>
+                        <div class="navbar">
+                            <div class="navbar-inner">
+                                <div >
+                                    <ul class="nav nav-pills">
+                                        <li class="active"><a href="#tab1" data-toggle="tab">Emploi precedent</a></li>
+                                        <li><a href="#tab2" data-toggle="tab">Diplome</a></li>
+                                        
+                                      
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab1">
+                                                       
+                              
+ <div class="row">
+
+                                    <div  class="col-sm-6 " ><i class="glyphicon glyphicon-calendar"></i>
+                                        <label >Date Debut *</label>
+                                        <h:inputText  id="dateDebut" value="#{emploiprecedentController.selected.dateDebut}" title="date_debut" class="form-control  datep" >
+                                            <f:convertDateTime pattern="dd-MM-yyyy" />
+                                        </h:inputText>
+
+                                        <p class="note">
+                                            Data format **/**/****
+                                        </p>
+                                    </div>
+     <div  class="col-sm-6 " ><i class="glyphicon glyphicon-calendar"></i>
+                                        <label >Date Fin *</label>
+                                        <h:inputText  id="dateFin" value="#{emploiprecedentController.selected.dateFin}" title="date_fin" class="form-control  datep" >
+                                            <f:convertDateTime pattern="dd-MM-yyyy" />
+                                        </h:inputText>
+
+                                        <p class="note">
+                                            Data format **/**/****
+                                        </p>
+                                    </div>
+                                </div> 
+                                <div class="row">
+
+                                        <div class="col-sm-6">
+
+                                        <label>Nom de l'entreprise </label>
+
+                                        <h:inputText id="entreprise" value="#{emploiprecedentController.selected.entreprise}" title="entreprise" class="form-control" autocomplete="false"/>
+                                    </div>
+                                    <div class="col-sm-6">
+
+                                        <label>Poste précedent </label>
+
+                                        <h:inputText id="post_pr" value="#{emploiprecedentController.selected.post}" title="post_precedent" class="form-control" autocomplete="false"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div  class="col-sm-6 " >
+                                        <label >Contrat *</label>
+                                    <h:selectOneMenu id="contrat" value="#{emploiprecedentController.selected.contrat}" title="contrat" class="form-control" >
+                        <f:selectItems value="#{contratController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                                    </div>
+                                    
+                                            <div class="col-md-12 ">
+                                    <br />
+                                        
+                                    <h:commandLink  class="btn btn-primary" action="#{emploiprecedentController.create(employeController.selected)}" value="Save" />
+                                   
+                                </div>
+                                        
+                                    </div>
+
+
+                            </div>
+                            <div class="tab-pane" id="tab2">
+                                <div class="row">
+
+                                    <div  class="col-sm-6">
+                                        <label>Denomination </label>
+                                        
+                                         <h:inputText id="denomination" value="#{diplomeController.selected.denomination}" title="denomination" class="form-control"  autocomplete="false"/>
+                                    </div> 
+
+
+                                    <div class="col-sm-6">
+                                        <label >Etablissement </label>
+                                        <h:inputText id="etablissement" value="#{diplomeController.selected.etablissement}" title="etablissement" class="form-control" autocomplete="false"/>
+
+                                    </div>
+                                </div> 
+                                <div class="row">
+
+                                    <div  class="col-sm-6">
+                                        <label>Année </label>
+                                        <h:inputText id="anne" value="#{diplomeController.selected.anne}" title="annee" class="form-control"  autocomplete="false"/>
+                                    </div> 
+
+
+                                    <div class="col-sm-6">
+                                        <label >Niveau Etude </label>
+                                        <h:inputText id="niveauEtude" value="#{diplomeController.selected.niveauEtude}" title="niveauEtude" class="form-control" autocomplete="false"/>
+
+                                    </div>
+                                </div> 
+                                   
+                    <div class="row">
+
+                                    <div  class="col-sm-6">
+                                         <br />
+                <h:commandLink class="btn btn-primary" action="#{diplomeController.create(employeController.selected)}" value="Save" />
+                                    </div> 
+
+                                </div> 
+                   
+                   
+
+                            </div>
+                           
+                            <br /> <br />
+
+                            <ul class="pager wizard">
+                                <li class="previous first disabled" style="display:none;"><a href="javascript:void(0);">First</a></li>
+                                <li class="previous disabled"><a href="javascript:void(0);">Previous</a></li>
+                                <li class="next last" style="display:none;"><a href="javascript:void(0);">Last</a></li>
+                                <li class="next"><a href="javascript:void(0);">Next</a></li>
+                            </ul>
+                        </div>	
+                         </fieldset>
+                    </div>
+                </div>
+</div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateEmploiprecedentTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateEmploiprecedentLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{emploiprecedentController.selected.id}" title="#{bundle.CreateEmploiprecedentTitle_id}" required="true" requiredMessage="#{bundle.CreateEmploiprecedentRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateEmploiprecedentLabel_dateDebut}" for="dateDebut" />
+                    <h:inputText id="dateDebut" value="#{emploiprecedentController.selected.dateDebut}" title="#{bundle.CreateEmploiprecedentTitle_dateDebut}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateEmploiprecedentLabel_dateFin}" for="dateFin" />
+                    <h:inputText id="dateFin" value="#{emploiprecedentController.selected.dateFin}" title="#{bundle.CreateEmploiprecedentTitle_dateFin}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateEmploiprecedentLabel_entreprise}" for="entreprise" />
+                    <h:inputText id="entreprise" value="#{emploiprecedentController.selected.entreprise}" title="#{bundle.CreateEmploiprecedentTitle_entreprise}" />
+                    <h:outputLabel value="#{bundle.CreateEmploiprecedentLabel_post}" for="post" />
+                    <h:inputText id="post" value="#{emploiprecedentController.selected.post}" title="#{bundle.CreateEmploiprecedentTitle_post}" />
+                    <h:outputLabel value="#{bundle.CreateEmploiprecedentLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{emploiprecedentController.selected.description}" title="#{bundle.CreateEmploiprecedentTitle_description}" />
+                    <h:outputLabel value="#{bundle.CreateEmploiprecedentLabel_employe}" for="employe" />
+                    <h:selectOneMenu id="employe" value="#{emploiprecedentController.selected.employe}" title="#{bundle.CreateEmploiprecedentTitle_employe}" required="true" requiredMessage="#{bundle.CreateEmploiprecedentRequiredMessage_employe}">
+                        <f:selectItems value="#{employeController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateEmploiprecedentLabel_contrat}" for="contrat" />
+                    <h:selectOneMenu id="contrat" value="#{emploiprecedentController.selected.contrat}" title="#{bundle.CreateEmploiprecedentTitle_contrat}" required="true" requiredMessage="#{bundle.CreateEmploiprecedentRequiredMessage_contrat}">
+                        <f:selectItems value="#{contratController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{emploiprecedentController.create}" value="#{bundle.CreateEmploiprecedentSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{emploiprecedentController.prepareList}" value="#{bundle.CreateEmploiprecedentShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateEmploiprecedentIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

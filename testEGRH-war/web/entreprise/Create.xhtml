@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateEntrepriseTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateEntrepriseLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{entrepriseController.selected.id}" title="#{bundle.CreateEntrepriseTitle_id}" required="true" requiredMessage="#{bundle.CreateEntrepriseRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateEntrepriseLabel_nom}" for="nom" />
+                    <h:inputText id="nom" value="#{entrepriseController.selected.nom}" title="#{bundle.CreateEntrepriseTitle_nom}" />
+                    <h:outputLabel value="#{bundle.CreateEntrepriseLabel_sigle}" for="sigle" />
+                    <h:inputText id="sigle" value="#{entrepriseController.selected.sigle}" title="#{bundle.CreateEntrepriseTitle_sigle}" />
+                    <h:outputLabel value="#{bundle.CreateEntrepriseLabel_logo}" for="logo" />
+                    <h:inputText id="logo" value="#{entrepriseController.selected.logo}" title="#{bundle.CreateEntrepriseTitle_logo}" />
+                    <h:outputLabel value="#{bundle.CreateEntrepriseLabel_dateCreation}" for="dateCreation" />
+                    <h:inputText id="dateCreation" value="#{entrepriseController.selected.dateCreation}" title="#{bundle.CreateEntrepriseTitle_dateCreation}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateEntrepriseLabel_pays}" for="pays" />
+                    <h:inputText id="pays" value="#{entrepriseController.selected.pays}" title="#{bundle.CreateEntrepriseTitle_pays}" />
+                    <h:outputLabel value="#{bundle.CreateEntrepriseLabel_siege}" for="siege" />
+                    <h:inputText id="siege" value="#{entrepriseController.selected.siege}" title="#{bundle.CreateEntrepriseTitle_siege}" />
+                    <h:outputLabel value="#{bundle.CreateEntrepriseLabel_responsable}" for="responsable" />
+                    <h:selectOneMenu id="responsable" value="#{entrepriseController.selected.responsable}" title="#{bundle.CreateEntrepriseTitle_responsable}" >
+                        <f:selectItems value="#{responsableController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{entrepriseController.create}" value="#{bundle.CreateEntrepriseSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{entrepriseController.prepareList}" value="#{bundle.CreateEntrepriseShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateEntrepriseIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
