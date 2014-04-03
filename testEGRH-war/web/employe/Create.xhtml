@@ -17,6 +17,9 @@
                     <div id="rootwizard">
                          <fieldset>
                                         <legend>Ajouter Employé</legend><br></br>
+                                         <div  class="well">
+                                        <h:commandLink  class="btn btn-lg btn-block btn-default" action="#{employeController.prepareList}" value="Liste des employés" immediate="true"/>
+               </div> 
                         <div class="navbar">
                             <div class="navbar-inner">
                                 <div >
@@ -82,7 +85,7 @@
                                     <div  class="col-sm-6 " ><i class="glyphicon glyphicon-calendar"></i>
                                         <label >Date naissance *</label>
                                         <h:inputText  id="dateNaissance" value="#{employeController.selected.dateNaissance}" title="#{bundle.CreateEmployeTitle_dateNaissance}" class="form-control  datep" >
-                                            <f:convertDateTime pattern="dd-MM-yyyy" />
+                                            <f:convertDateTime pattern="dd/MM/yyyy" />
                                         </h:inputText>
 
                                         <p class="note">
@@ -165,7 +168,7 @@
                                         <label >Date d'entrée en fonction *</label>
 
                                         <h:inputText class="form-control datep" id="dateEntreeFonction" value="#{employeController.selected.dateEntreeFonction}" title="#{bundle.CreateEmployeTitle_dateEntreeFonction}" >
-                                            <f:convertDateTime pattern="dd-MM-yyyy" />
+                                            <f:convertDateTime pattern="dd/MM/yyyy" />
                                         </h:inputText>
 
                                         <p class="note">
@@ -179,7 +182,7 @@
                                     <div class="col-md-6 " ><i class="glyphicon glyphicon-calendar"></i>
                                         <label>Date embauche *</label>
                                         <h:inputText  class="form-control datep" id="dateEmbauche" value="#{employeController.selected.dateEmbauche}" title="#{bundle.CreateEmployeTitle_dateEmbauche}" >
-                                            <f:convertDateTime pattern="dd-MM-yyyy" />
+                                            <f:convertDateTime pattern="dd/MM/yyyy" />
                                         </h:inputText>
 
                                         <p class="note">
@@ -192,7 +195,7 @@
                                         <label >Date depart *</label>
 
                                         <h:inputText class="form-control datep" id="dateDepart" value="#{employeController.selected.dateDepart}" title="#{bundle.CreateEmployeTitle_dateDepart}" >
-                                            <f:convertDateTime pattern="dd-MM-yyyy" />
+                                            <f:convertDateTime pattern="dd/MM/yyyy" />
                                         </h:inputText>
 
                                         <p class="note">
@@ -215,7 +218,7 @@
                                 <div class="col-md-12 ">
                                     <br />
                                         
-                                        <h:commandLink  class="btn btn-primary" action="#{employeController.create}" value="#{bundle.CreateEmployeSaveLink}" />
+                                        <h:commandLink  class="btn btn-lg btn-block btn-primary" action="#{employeController.create}" value="#{bundle.CreateEmployeSaveLink}" />
                                     
                                 </div>
  </div>
@@ -234,6 +237,12 @@
                 </div>
 </div>
             </h:form>
+            <script>
+                    
+                 $( ".datep" ).datepicker();
+                 $( ".datep" ).datepicker( "option", "dateFormat", "dd/mm/yy" );
+            </script>
+
         </ui:define>
     </ui:composition>
 

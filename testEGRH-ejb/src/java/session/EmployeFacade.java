@@ -6,6 +6,7 @@
 
 package session;
 
+import bean.Diplome;
 import bean.Emploiprecedent;
 import bean.Employe;
 import java.util.ArrayList;
@@ -35,4 +36,16 @@ public class EmployeFacade extends AbstractFacade<Employe> implements EmployeFac
         super(Employe.class);
     }
     
+    @Override
+    public List<Emploiprecedent> loadEmploiPrecedents(Employe e){
+        Query q=em.createQuery("SELECT  e FROM Emploiprecedent e WHERE e.employe.id="+e.getId());
+        return q.getResultList();
+        
+    }
+     @Override
+    public List<Diplome> loadDiplomes(Employe e){
+        Query q=em.createQuery("SELECT  d FROM Diplome d WHERE d.employe.id="+e.getId());
+        return q.getResultList();
+        
+    }
 }

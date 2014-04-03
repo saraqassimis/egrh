@@ -62,6 +62,7 @@ public class Emploiprecedent implements Serializable {
     @JoinColumn(name = "contrat", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Contrat contrat=new Contrat();
+    
 
     public Emploiprecedent() {
     }

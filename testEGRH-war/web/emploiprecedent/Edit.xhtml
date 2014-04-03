@@ -14,42 +14,94 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditEmploiprecedentLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{emploiprecedentController.selected.id}" title="#{bundle.EditEmploiprecedentTitle_id}" required="true" requiredMessage="#{bundle.EditEmploiprecedentRequiredMessage_id}"/>
-                    <h:outputLabel value="#{bundle.EditEmploiprecedentLabel_dateDebut}" for="dateDebut" />
-                    <h:inputText id="dateDebut" value="#{emploiprecedentController.selected.dateDebut}" title="#{bundle.EditEmploiprecedentTitle_dateDebut}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                    </h:inputText>
-                    <h:outputLabel value="#{bundle.EditEmploiprecedentLabel_dateFin}" for="dateFin" />
-                    <h:inputText id="dateFin" value="#{emploiprecedentController.selected.dateFin}" title="#{bundle.EditEmploiprecedentTitle_dateFin}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                    </h:inputText>
-                    <h:outputLabel value="#{bundle.EditEmploiprecedentLabel_entreprise}" for="entreprise" />
-                    <h:inputText id="entreprise" value="#{emploiprecedentController.selected.entreprise}" title="#{bundle.EditEmploiprecedentTitle_entreprise}" />
-                    <h:outputLabel value="#{bundle.EditEmploiprecedentLabel_post}" for="post" />
-                    <h:inputText id="post" value="#{emploiprecedentController.selected.post}" title="#{bundle.EditEmploiprecedentTitle_post}" />
-                    <h:outputLabel value="#{bundle.EditEmploiprecedentLabel_description}" for="description" />
-                    <h:inputText id="description" value="#{emploiprecedentController.selected.description}" title="#{bundle.EditEmploiprecedentTitle_description}" />
-                    <h:outputLabel value="#{bundle.EditEmploiprecedentLabel_employe}" for="employe" />
-                    <h:selectOneMenu id="employe" value="#{emploiprecedentController.selected.employe}" title="#{bundle.EditEmploiprecedentTitle_employe}" required="true" requiredMessage="#{bundle.EditEmploiprecedentRequiredMessage_employe}">
-                        <f:selectItems value="#{employeController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.EditEmploiprecedentLabel_contrat}" for="contrat" />
-                    <h:selectOneMenu id="contrat" value="#{emploiprecedentController.selected.contrat}" title="#{bundle.EditEmploiprecedentTitle_contrat}" required="true" requiredMessage="#{bundle.EditEmploiprecedentRequiredMessage_contrat}">
-                        <f:selectItems value="#{contratController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                </h:panelGrid>
-                <h:commandLink action="#{emploiprecedentController.update}" value="#{bundle.EditEmploiprecedentSaveLink}"/>
-                <br />
-                <br />
-                <h:link outcome="View" value="#{bundle.EditEmploiprecedentViewLink}"/>
-                <br />
-                <h:commandLink action="#{emploiprecedentController.prepareList}" value="#{bundle.EditEmploiprecedentShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.EditEmploiprecedentIndexLink}" />
+                <div class="content-box-large">
+                    <div class="panel-body">
+                        <div id="rootwizard">
+                            <fieldset>
+                                <legend>Modifier Emploi precedent </legend><br></br>
+                                <div  class="well">
+                                    <h:link  class="btn btn-lg btn-block btn-default" outcome="/employe/List" ><label>List des employés </label></h:link>
+                                     <h:link  class="btn btn-lg btn-block btn-default" outcome="/emploiprecedent/ListEmplois" ><label>List des emplois précedents </label></h:link>
+                                </div> 
+
+                                <div class="row">
+
+                                    <div  class="col-sm-6 " ><i class="glyphicon glyphicon-calendar"></i>
+                                        <label >Date Debut *</label>
+                                        <h:inputText  id="dateDebut" value="#{emploiprecedentController.selected.dateDebut}" title="date_debut" class="form-control  datep" >
+                                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                                        </h:inputText>
+
+                                        <p class="note">
+                                            Data format **/**/****
+                                        </p>
+                                    </div>
+                                    <div  class="col-sm-6 " ><i class="glyphicon glyphicon-calendar"></i>
+                                        <label >Date Fin *</label>
+                                        <h:inputText  id="dateFin" value="#{emploiprecedentController.selected.dateFin}" title="date_fin" class="form-control  datep" >
+                                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                                        </h:inputText>
+
+                                        <p class="note">
+                                            Data format **/**/****
+                                        </p>
+                                    </div>
+                                </div> 
+                                <div class="row">
+
+                                    <div class="col-sm-6">
+
+                                        <label>Nom de l'entreprise </label>
+
+                                        <h:inputText id="entreprise" value="#{emploiprecedentController.selected.entreprise}" title="entreprise" class="form-control" autocomplete="false"/>
+                                    </div>
+                                    <div class="col-sm-6">
+
+                                        <label>Poste précedent </label>
+
+                                        <h:inputText id="post_pr" value="#{emploiprecedentController.selected.post}" title="post_precedent" class="form-control" autocomplete="false"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div  class="col-sm-6 " >
+                                        <label >Contrat *</label>
+                                        <h:selectOneMenu id="contrat" value="#{emploiprecedentController.selected.contrat}" title="contrat" class="form-control" >
+                                            <f:selectItems value="#{contratController.itemsAvailableSelectOne}"/>
+                                        </h:selectOneMenu>
+                                    </div>
+
+                                    <div class="col-md-12 ">
+                                        <br />
+
+                                        <h:commandLink  class="btn btn-lg btn-block btn-primary" action="#{emploiprecedentController.update}" value="Save" />
+
+                                    </div>
+
+                                </div>
+
+
+
+
+                                <br /> <br />
+
+                                <ul class="pager wizard">
+                                    <li class="previous first disabled" style="display:none;"><a href="javascript:void(0);">First</a></li>
+                                    <li class="previous disabled"><a href="javascript:void(0);">Previous</a></li>
+                                    <li class="next last" style="display:none;"><a href="javascript:void(0);">Last</a></li>
+                                    <li class="next"><a href="javascript:void(0);">Next</a></li>
+                                </ul>
+
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
             </h:form>
+            <script>
+
+                $(".datep").datepicker();
+
+            </script>
         </ui:define>
     </ui:composition>
 

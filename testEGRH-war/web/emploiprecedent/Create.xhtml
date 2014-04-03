@@ -17,6 +17,9 @@
                     <div id="rootwizard">
                          <fieldset>
                                         <legend>Ajouter Emploi precedent Et Diplome</legend><br></br>
+                                        <div  class="well">
+                                        <h:link  class="btn btn-lg btn-block btn-default" outcome="/employe/List" ><label>List des employés </label></h:link>
+               </div> 
                         <div class="navbar">
                             <div class="navbar-inner">
                                 <div >
@@ -38,7 +41,7 @@
                                     <div  class="col-sm-6 " ><i class="glyphicon glyphicon-calendar"></i>
                                         <label >Date Debut *</label>
                                         <h:inputText  id="dateDebut" value="#{emploiprecedentController.selected.dateDebut}" title="date_debut" class="form-control  datep" >
-                                            <f:convertDateTime pattern="dd-MM-yyyy" />
+                                            <f:convertDateTime pattern="dd/MM/yyyy" />
                                         </h:inputText>
 
                                         <p class="note">
@@ -48,7 +51,7 @@
      <div  class="col-sm-6 " ><i class="glyphicon glyphicon-calendar"></i>
                                         <label >Date Fin *</label>
                                         <h:inputText  id="dateFin" value="#{emploiprecedentController.selected.dateFin}" title="date_fin" class="form-control  datep" >
-                                            <f:convertDateTime pattern="dd-MM-yyyy" />
+                                            <f:convertDateTime pattern="dd/MM/yyyy" />
                                         </h:inputText>
 
                                         <p class="note">
@@ -83,7 +86,7 @@
                                             <div class="col-md-12 ">
                                     <br />
                                         
-                                    <h:commandLink  class="btn btn-primary" action="#{emploiprecedentController.create(employeController.selected)}" value="Save" />
+                                    <h:commandLink  class="btn btn-lg btn-block btn-primary" action="#{emploiprecedentController.create(employeController.selected)}" value="Save" />
                                    
                                 </div>
                                         
@@ -124,9 +127,9 @@
                                    
                     <div class="row">
 
-                                    <div  class="col-sm-6">
+                                    <div  class="col-sm-12">
                                          <br />
-                <h:commandLink class="btn btn-primary" action="#{diplomeController.create(employeController.selected)}" value="Save" />
+                <h:commandLink class="btn btn-lg btn-block btn-primary" action="#{diplomeController.create(employeController.selected)}" value="Save" />
                                     </div> 
 
                                 </div> 
@@ -149,6 +152,11 @@
                 </div>
 </div>
             </h:form>
+              <script>
+                    
+                 $( ".datep" ).datepicker();
+                 $( ".datep" ).datepicker( "option", "dateFormat", "dd/mm/yy" );
+            </script>
         </ui:define>
     </ui:composition>
 

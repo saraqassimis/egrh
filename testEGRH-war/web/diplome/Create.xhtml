@@ -7,37 +7,82 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.CreateDiplomeTitle}"></h:outputText>
+            <h:outputText value="#{bundle.EditDiplomeTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateDiplomeLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{diplomeController.selected.id}" title="#{bundle.CreateDiplomeTitle_id}" required="true" requiredMessage="#{bundle.CreateDiplomeRequiredMessage_id}"/>
-                    <h:outputLabel value="#{bundle.CreateDiplomeLabel_denomination}" for="denomination" />
-                    <h:inputText id="denomination" value="#{diplomeController.selected.denomination}" title="#{bundle.CreateDiplomeTitle_denomination}" />
-                    <h:outputLabel value="#{bundle.CreateDiplomeLabel_etablissement}" for="etablissement" />
-                    <h:inputText id="etablissement" value="#{diplomeController.selected.etablissement}" title="#{bundle.CreateDiplomeTitle_etablissement}" />
-                    <h:outputLabel value="#{bundle.CreateDiplomeLabel_anne}" for="anne" />
-                    <h:inputText id="anne" value="#{diplomeController.selected.anne}" title="#{bundle.CreateDiplomeTitle_anne}" />
-                    <h:outputLabel value="#{bundle.CreateDiplomeLabel_niveauEtude}" for="niveauEtude" />
-                    <h:inputText id="niveauEtude" value="#{diplomeController.selected.niveauEtude}" title="#{bundle.CreateDiplomeTitle_niveauEtude}" />
-                    <h:outputLabel value="#{bundle.CreateDiplomeLabel_employe}" for="employe" />
-                    <h:selectOneMenu id="employe" value="#{diplomeController.selected.employe}" title="#{bundle.CreateDiplomeTitle_employe}" required="true" requiredMessage="#{bundle.CreateDiplomeRequiredMessage_employe}">
-                        <f:selectItems value="#{employeController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                </h:panelGrid>
-                <br />
-                <h:commandLink action="#{diplomeController.create}" value="#{bundle.CreateDiplomeSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{diplomeController.prepareList}" value="#{bundle.CreateDiplomeShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreateDiplomeIndexLink}"/>
+           
+               <div class="content-box-large">
+                <div class="panel-body">
+                    <div id="rootwizard">
+                         <fieldset>
+                                        <legend>Ajouter Diplome </legend><br></br>
+                                        <div  class="well">
+                                        <h:link  class="btn btn-lg btn-block btn-default" outcome="/employe/List" ><label>List des employés </label></h:link>
+               </div> 
+                        
+                       
+                           
+                                <div class="row">
+
+                                    <div  class="col-sm-6">
+                                        <label>Denomination </label>
+                                        
+                                         <h:inputText id="denomination" value="#{diplomeController.selected.denomination}" title="denomination" class="form-control"  autocomplete="false"/>
+                                    </div> 
+
+
+                                    <div class="col-sm-6">
+                                        <label >Etablissement </label>
+                                        <h:inputText id="etablissement" value="#{diplomeController.selected.etablissement}" title="etablissement" class="form-control" autocomplete="false"/>
+
+                                    </div>
+                                </div> 
+                                <div class="row">
+
+                                    <div  class="col-sm-6">
+                                        <label>Année </label>
+                                        <h:inputText id="anne" value="#{diplomeController.selected.anne}" title="annee" class="form-control"  autocomplete="false"/>
+                                    </div> 
+
+
+                                    <div class="col-sm-6">
+                                        <label >Niveau Etude </label>
+                                        <h:inputText id="niveauEtude" value="#{diplomeController.selected.niveauEtude}" title="niveauEtude" class="form-control" autocomplete="false"/>
+
+                                    </div>
+                                </div> 
+                                   
+                    <div class="row">
+
+                                    <div  class="col-sm-12">
+                                         <br />
+                                         <h:commandLink class="btn btn-lg btn-block btn-primary" action="#{diplomeController.create(employeController.selected)}" value="Save" />
+                                    </div> 
+
+                                </div> 
+                   
+                   
+
+                            
+                           
+                            <br /> <br />
+
+                            <ul class="pager wizard">
+                                <li class="previous first disabled" style="display:none;"><a href="javascript:void(0);">First</a></li>
+                                <li class="previous disabled"><a href="javascript:void(0);">Previous</a></li>
+                                <li class="next last" style="display:none;"><a href="javascript:void(0);">Last</a></li>
+                                <li class="next"><a href="javascript:void(0);">Next</a></li>
+                            </ul>
+                       
+                         </fieldset>
+                    </div>
+                </div>
+</div>
+            
             </h:form>
         </ui:define>
     </ui:composition>

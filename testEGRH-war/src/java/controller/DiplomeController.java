@@ -88,6 +88,8 @@ public class DiplomeController implements Serializable {
            System.out.println("******Diplome*****"+current);
             recreateModel();
           JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("DiplomeCreated"));
+           current = new Diplome();
+        selectedItemIndex = -1;
            return"/emploiprecedent/Create";
           
         } catch (Exception e) {

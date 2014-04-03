@@ -7,49 +7,85 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.ViewEmploiprecedentTitle}"></h:outputText>
+            <h:outputText value="#{bundle.EditEmploiprecedentTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewEmploiprecedentLabel_id}"/>
-                    <h:outputText value="#{emploiprecedentController.selected.id}" title="#{bundle.ViewEmploiprecedentTitle_id}"/>
-                    <h:outputText value="#{bundle.ViewEmploiprecedentLabel_dateDebut}"/>
-                    <h:outputText value="#{emploiprecedentController.selected.dateDebut}" title="#{bundle.ViewEmploiprecedentTitle_dateDebut}">
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                    </h:outputText>
-                    <h:outputText value="#{bundle.ViewEmploiprecedentLabel_dateFin}"/>
-                    <h:outputText value="#{emploiprecedentController.selected.dateFin}" title="#{bundle.ViewEmploiprecedentTitle_dateFin}">
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                    </h:outputText>
-                    <h:outputText value="#{bundle.ViewEmploiprecedentLabel_entreprise}"/>
-                    <h:outputText value="#{emploiprecedentController.selected.entreprise}" title="#{bundle.ViewEmploiprecedentTitle_entreprise}"/>
-                    <h:outputText value="#{bundle.ViewEmploiprecedentLabel_post}"/>
-                    <h:outputText value="#{emploiprecedentController.selected.post}" title="#{bundle.ViewEmploiprecedentTitle_post}"/>
-                    <h:outputText value="#{bundle.ViewEmploiprecedentLabel_description}"/>
-                    <h:outputText value="#{emploiprecedentController.selected.description}" title="#{bundle.ViewEmploiprecedentTitle_description}"/>
-                    <h:outputText value="#{bundle.ViewEmploiprecedentLabel_employe}"/>
-                    <h:outputText value="#{emploiprecedentController.selected.employe}" title="#{bundle.ViewEmploiprecedentTitle_employe}"/>
-                    <h:outputText value="#{bundle.ViewEmploiprecedentLabel_contrat}"/>
-                    <h:outputText value="#{emploiprecedentController.selected.contrat}" title="#{bundle.ViewEmploiprecedentTitle_contrat}"/>
-                </h:panelGrid>
-                <br />
-                <h:commandLink action="#{emploiprecedentController.destroyAndView}" value="#{bundle.ViewEmploiprecedentDestroyLink}"/>
-                <br />
-                <br />
-                <h:link outcome="Edit" value="#{bundle.ViewEmploiprecedentEditLink}"/>
-                <br />
-                <h:commandLink action="#{emploiprecedentController.prepareCreate}" value="#{bundle.ViewEmploiprecedentCreateLink}" />
-                <br />
-                <h:commandLink action="#{emploiprecedentController.prepareList}" value="#{bundle.ViewEmploiprecedentShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewEmploiprecedentIndexLink}"/>
+                <div class="content-box-large">
+                    <div class="panel-body">
+                        <div id="rootwizard">
+                            <fieldset>
+                                <legend> Emploi precedent </legend><br></br>
+                                <div  class="well">
+                                    <h:link  class="btn btn-lg btn-block btn-default" outcome="/emploiprecedent/ListEmplois" ><label>List des emplois précedents </label></h:link>
+                                </div> 
 
+                                <div class="row">
+
+                                    <div  class="col-sm-6 " ><i class="glyphicon glyphicon-calendar"></i>
+                                        <label >Date Debut *</label>
+                                        <h:outputText  id="dateDebut" value="#{emploiprecedentController.selected.dateDebut}" title="date_debut" class="form-control" >
+                                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                                        </h:outputText>
+
+                                    </div>
+                                    <div  class="col-sm-6 " ><i class="glyphicon glyphicon-calendar"></i>
+                                        <label >Date Fin *</label>
+                                        <h:outputText  id="dateFin" value="#{emploiprecedentController.selected.dateFin}" title="date_fin" class="form-control " >
+                                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                                        </h:outputText>
+
+                                        
+                                    </div>
+                                </div> 
+                                <div class="row">
+
+                                    <div class="col-sm-6">
+
+                                        <label>Nom de l'entreprise </label>
+
+                                        <h:outputText id="entreprise" value="#{emploiprecedentController.selected.entreprise}" title="entreprise" class="form-control" />
+                                    </div>
+                                    <div class="col-sm-6">
+
+                                        <label>Poste précedent </label>
+
+                                        <h:outputText id="post_pr" value="#{emploiprecedentController.selected.post}" title="post_precedent" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div  class="col-sm-6 " >
+                                        <label >Contrat *</label>
+                                         <h:outputText value="#{emploiprecedentController.selected.contrat}" title="contrat" class="form-control"/>
+                                       
+                                    </div>
+
+                                  
+
+                                </div>
+
+
+
+
+                                <br /> <br />
+
+                                <ul class="pager wizard">
+                                    <li class="previous first disabled" style="display:none;"><a href="javascript:void(0);">First</a></li>
+                                    <li class="previous disabled"><a href="javascript:void(0);">Previous</a></li>
+                                    <li class="next last" style="display:none;"><a href="javascript:void(0);">Last</a></li>
+                                    <li class="next"><a href="javascript:void(0);">Next</a></li>
+                                </ul>
+
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
             </h:form>
+           
         </ui:define>
     </ui:composition>
 

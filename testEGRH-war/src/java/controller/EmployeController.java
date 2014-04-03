@@ -34,6 +34,18 @@ public class EmployeController implements Serializable {
 
     public EmployeController() {
     }
+    
+      public String detailEmplois(Employe employe){
+        employe.setEmploiprecedentList(ejbFacade.loadEmploiPrecedents(employe));
+        current=employe;
+        return "/emploiprecedent/ListEmplois";
+    }
+      public String detailDiplomes(Employe employe){
+          employe.setDiplomeList(ejbFacade.loadDiplomes(employe));
+          current=employe;
+        return "/diplome/ListDiplomes";
+      }
+          
 
     public EmploiprecedentFacade getEjbEmploiFacade() {
         return ejbEmploiFacade;
@@ -93,6 +105,7 @@ public class EmployeController implements Serializable {
 
     public String create() {
         try {
+             recreateModel();
             getFacade().create(current);
             recreateModel();
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("EmployeCreated"));

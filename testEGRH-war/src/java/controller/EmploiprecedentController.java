@@ -107,6 +107,8 @@ public class EmploiprecedentController implements Serializable {
            System.out.println("***********"+current);
             recreateModel();
           JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("EmploiprecedentCreated"));
+          current = new Emploiprecedent();
+        selectedItemIndex = -1;
            return"/emploiprecedent/Create";
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));

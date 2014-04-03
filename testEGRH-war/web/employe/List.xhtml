@@ -6,57 +6,57 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:composition template="/template.xhtml">
-       
+
         <ui:define name="body">
             <h:form styleClass="jsfcrud_list_form">
                 <div class="content-box-large">
-  				
-  				<div class="panel-body">
-                                    <fieldset>
-                                        <legend>Liste des employés</legend><br></br>
-                                        <div >
-                                            <h:commandLink  action="#{employeController.prepareCreate}"><label><i class=" glyphicon glyphicon-plus " style="font-size:20px;"/>Ajouter un utilisateur </label></h:commandLink>
-                                        </div>
-                                     <br /> <br />
 
-                    <h:dataTable value="#{employeController.items}" var="item" border="0" styleClass="table table-striped table-bordered example">
-                        
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmployeTitle_nom}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nom}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmployeTitle_prenom}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.prenom}"/>
-                        </h:column>
-                        
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmployeTitle_poste}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.poste}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink  action="#{employeController.prepareEdit}"><i class=" glyphicon glyphicon-pencil " style="font-size:20px;"/></h:commandLink>
-                            <h:outputText value="     "/>
-                            <h:outputText value="     "/>
-                            <h:commandLink action="#{employeController.prepareView}" ><i class=" glyphicon glyphicon-eye-open " style="font-size:20px;"/></h:commandLink>
-                           <h:outputText value="     "/>
-                           <h:outputText value="     "/>
-                           <h:commandLink  action="#{employeController.destroy}"><i class=" glyphicon glyphicon-remove " style="font-size:20px;"/></h:commandLink>
+                    <div class="panel-body">
+                        <fieldset>
+                            <legend>Liste des employés</legend><br></br>
+                             <div  class="well">
+                                        <h:commandLink  class="btn btn-lg btn-block btn-default" action="#{employeController.prepareCreate}"><label>Ajouter un employé </label></h:commandLink>
+               </div> 
                             
-                        </h:column>
-                    </h:dataTable>
-              
-               </fieldset>
-                                </div>
+                            <br /> <br />
+
+                            <h:dataTable value="#{employeController.items}" var="item" border="0" styleClass="table table-striped table-bordered example">
+
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListEmployeTitle_nom}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.nom}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListEmployeTitle_prenom}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.prenom}"/>
+                                </h:column>
+
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{bundle.ListEmployeTitle_poste}"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.poste}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="&nbsp;"/>
+                                    </f:facet>
+                                    <h:commandLink class="btn btn-default" action="#{employeController.prepareView}" ><i class=" glyphicon glyphicon-eye-open " style="font-size:20px;"/></h:commandLink>
+                                    <h:outputText value="     "/>
+                                    <h:outputText value="     "/>
+                                    <h:commandLink class="btn btn-primary" action="#{employeController.prepareEdit}"><i class=" glyphicon glyphicon-pencil " style="font-size:20px;"/></h:commandLink>
+                                   
+
+
+                                </h:column>
+                            </h:dataTable>
+
+                        </fieldset>
+                    </div>
                 </div>
             </h:form>
         </ui:define>

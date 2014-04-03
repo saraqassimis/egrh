@@ -6,6 +6,7 @@
 
 package session;
 
+import bean.Diplome;
 import bean.Emploiprecedent;
 import bean.Employe;
 import java.util.List;
@@ -30,7 +31,8 @@ public interface EmployeFacadeLocal {
 
     List<Employe> findRange(int[] range);
      
-
+ public List<Emploiprecedent> loadEmploiPrecedents(Employe e);
+ public List<Diplome> loadDiplomes(Employe e);
     int count();
     
 }
