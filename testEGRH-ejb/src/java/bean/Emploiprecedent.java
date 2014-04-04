@@ -51,11 +51,11 @@ public class Emploiprecedent implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateFin;
     @Column(name = "entreprise")
-    private Character entreprise;
+    private String entreprise;
     @Column(name = "post")
-    private Character post;
+    private String post;
     @Column(name = "description")
-    private Character description;
+    private String description;
     @JoinColumn(name = "Employe", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Employe employe=new Employe();
@@ -94,29 +94,37 @@ public class Emploiprecedent implements Serializable {
         this.dateFin = dateFin;
     }
 
-    public Character getEntreprise() {
+    public String getEntreprise() {
         return entreprise;
     }
 
-    public void setEntreprise(Character entreprise) {
+   
+
+   
+
+    public void setEntreprise(String entreprise) {
         this.entreprise = entreprise;
     }
 
-    public Character getPost() {
+    public String getPost() {
         return post;
     }
 
-    public void setPost(Character post) {
+    public void setPost(String post) {
         this.post = post;
     }
 
-    public Character getDescription() {
+  
+
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(Character description) {
+    public void setDescription(String description) {
         this.description = description;
     }
+
+   
 
     public Employe getEmploye() {
         return employe;

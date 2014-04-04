@@ -7,6 +7,8 @@ import controller.util.PaginationHelper;
 import session.DiplomeFacade;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -27,8 +29,11 @@ public class DiplomeController implements Serializable {
     private DataModel items = null;
     @EJB
     private session.DiplomeFacade ejbFacade;
+    private session.EmployeFacade ejbEmploye;
     private PaginationHelper pagination;
     private int selectedItemIndex;
+    int indice;
+    private List<Diplome> diplomes = new ArrayList <Diplome>();
 
     public DiplomeController() {
     }
@@ -62,7 +67,21 @@ public class DiplomeController implements Serializable {
         }
         return pagination;
     }
-
+    public String delete(Diplome diplome){
+      
+       System.out.println("a");
+    getFacade().remove(diplome);
+     System.out.println("b");
+      JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("DiplomeDeleted"));
+ 
+    return "ListDiplomes";
+}
+public String editeView(Diplome diplome){
+   current=diplome;
+   indice=current.getEmploye().getDiplomeList().indexOf(diplome);
+    return "Edit";
+}
+  
     public String prepareList() {
         recreateModel();
         return "List";
@@ -90,7 +109,7 @@ public class DiplomeController implements Serializable {
           JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("DiplomeCreated"));
            current = new Diplome();
         selectedItemIndex = -1;
-           return"/emploiprecedent/Create";
+           return"Create";
           
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
@@ -98,6 +117,11 @@ public class DiplomeController implements Serializable {
         }
     }
 
+    public String prepareEdit1() {
+        current = (Diplome) getItems().getRowData();
+        selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
+        return "Edit";
+    }
     public String prepareEdit() {
         current = (Diplome) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();

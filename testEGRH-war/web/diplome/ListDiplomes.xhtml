@@ -10,12 +10,14 @@
             <h:outputText value="#{bundle.ListDiplomeTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
+            
+                
                 <h:panelGroup id="messagePanel" layout="block">
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-                </h:panelGroup>
+                </h:panelGroup> 
                  <div class="content-box-large">
                    <div class="panel-body">
+                       <h:form>
                         <fieldset>
                             <legend>Liste des diplomes</legend><br></br>
                              <div  class="well">
@@ -25,7 +27,7 @@
                             
                             <br /> <br />
 
-                            <h:dataTable value="#{employeController.selected.diplomeList}" var="item" border="0" styleClass="table table-striped table-bordered example">
+                            <h:dataTable  value="#{employeController.selected.diplomeList}" var="item" border="0" styleClass="table table-striped table-bordered example">
 
                             <h:column>
                             <f:facet name="header">
@@ -70,21 +72,25 @@
                                     <h:commandLink class="btn btn-default" action="#{diplomeController.prepareView}" ><i class=" glyphicon glyphicon-eye-open " style="font-size:20px;"/></h:commandLink>
                                     <h:outputText value="     "/>
                                     <h:outputText value="     "/>
-                                    <h:commandLink class="btn btn-primary" action="#{diplomeController.prepareEdit}"><i class=" glyphicon glyphicon-pencil " style="font-size:20px;"/></h:commandLink>
+                                    <h:commandLink class="btn btn-primary" action="#{diplomeController.editeView(item)}"><i class=" glyphicon glyphicon-pencil " style="font-size:20px;"/></h:commandLink>
                                     <h:outputText value="     "/>
                                     <h:outputText value="     "/>
-                                    <h:commandLink class="btn btn-danger" action="#{diplomeController.destroy}"><i class=" glyphicon glyphicon-remove " style="font-size:20px;"/></h:commandLink>
+                                    
+                                    <h:commandLink  class="btn btn-danger" action="#{diplomeController.delete(item)}"><i class=" glyphicon glyphicon-remove " style="font-size:20px;"/>
+                                     <f:ajax   execute="@this" render="@form"  /> 
+                                    </h:commandLink>
 
 
                                 </h:column>
                             </h:dataTable>
 
                         </fieldset>
+                        </h:form>
                     </div>
                 </div>
            
+          
            
-            </h:form>
         </ui:define>
     </ui:composition>
 

@@ -30,13 +30,27 @@ public class EmploiprecedentController implements Serializable {
     private session.EmploiprecedentFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
+    int indice;
    
      @EJB
     private session.EmployeFacade ejbEmploye;
     public EmploiprecedentController() {
     }
 
-    
+        public String delete(Emploiprecedent ep){
+      
+       System.out.println("a");
+    getFacade().remove(ep);
+     System.out.println("b");
+     JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("EmploiprecedentDeleted"));
+ 
+    return "ListEmplois";
+}
+public String editeView(Emploiprecedent ep){
+   current=ep;
+   indice=current.getEmploye().getDiplomeList().indexOf(ep);
+    return "Edit";
+}
 
     public Emploiprecedent getSelected() {
         if (current == null) {

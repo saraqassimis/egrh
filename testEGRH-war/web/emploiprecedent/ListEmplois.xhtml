@@ -10,7 +10,7 @@
             <h:outputText value="#{bundle.ListEmploiprecedentTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
+            <h:form>
        
                      <div class="content-box-large">
 
@@ -86,10 +86,12 @@
                                     <h:commandLink class="btn btn-default" action="#{emploiprecedentController.prepareView}" ><i class=" glyphicon glyphicon-eye-open " style="font-size:20px;"/></h:commandLink>
                                     <h:outputText value="     "/>
                                     <h:outputText value="     "/>
-                                    <h:commandLink class="btn btn-primary" action="#{emploiprecedentController.prepareEdit}"><i class=" glyphicon glyphicon-pencil " style="font-size:20px;"/></h:commandLink>
+                                    <h:commandLink class="btn btn-primary" action="#{emploiprecedentController.editeView(item)}"><i class=" glyphicon glyphicon-pencil " style="font-size:20px;"/></h:commandLink>
                                     <h:outputText value="     "/>
                                     <h:outputText value="     "/>
-                                    <h:commandLink class="btn btn-danger" action="#{emploiprecedentController.destroy}"><i class=" glyphicon glyphicon-remove " style="font-size:20px;"/></h:commandLink>
+                                    <h:commandLink class="btn btn-danger" action="#{emploiprecedentController.delete(item)}"><i class=" glyphicon glyphicon-remove " style="font-size:20px;"/>
+                                    <f:ajax execute="@form" render="@form" />
+                                    </h:commandLink>
 
 
                                 </h:column>
