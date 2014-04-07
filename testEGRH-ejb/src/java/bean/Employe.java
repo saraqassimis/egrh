@@ -115,9 +115,7 @@ public class Employe implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateDepart;
     private boolean etat_inscription_formation;
-    @OneToMany
-    private List<Evalueremploye> evalueremployeList = new ArrayList<Evalueremploye>();
-    @JoinColumn(name = "Poste_id", referencedColumnName = "id")
+    
     @ManyToOne(optional = false)
     private Poste poste;
     @OneToMany
@@ -126,6 +124,8 @@ public class Employe implements Serializable {
     private List<Diplome> diplomeList =new ArrayList <Diplome>();
     @OneToMany
     private List<Emploiprecedent> emploiprecedentList =new ArrayList <Emploiprecedent>();
+    @OneToMany
+    private List<Evalueremploye> evalueremployeList=new ArrayList<Evalueremploye>();;
 
     public Employe() {
     }

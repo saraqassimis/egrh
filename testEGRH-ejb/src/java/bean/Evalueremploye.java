@@ -50,8 +50,6 @@ public class Evalueremploye implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @NotNull
     @Column(name = "id")
     private Integer id;
     @Size(max = 254)
@@ -90,12 +88,11 @@ public class Evalueremploye implements Serializable {
     @Size(max = 254)
     @Column(name = "commentaire")
     private String commentaire;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "note")
-    private Float note;
-    @JoinColumn(name = "Employe_id", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private Employe empid;
+   @Column(name = "note")
+    private String note;
+   private String nom;
+    @ManyToOne
+     private Employe empid=new Employe();
 
     public Evalueremploye() {
     }
@@ -111,6 +108,15 @@ public class Evalueremploye implements Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+    
 
     public String getQualite() {
         return qualite;
@@ -208,14 +214,15 @@ public class Evalueremploye implements Serializable {
         this.commentaire = commentaire;
     }
 
-    public Float getNote() {
+    public String getNote() {
         return note;
     }
 
-    public void setNote(Float note) {
+    public void setNote(String note) {
         this.note = note;
     }
 
+   
     public Employe getEmpid() {
         return empid;
     }

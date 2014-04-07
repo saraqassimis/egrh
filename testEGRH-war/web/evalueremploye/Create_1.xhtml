@@ -16,9 +16,7 @@
             <h:form>
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.CreateEvalueremployeLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{evalueremployeController.selected.id}" title="#{bundle.CreateEvalueremployeTitle_id}" />
-                    <h:outputLabel value="#{bundle.CreateEvalueremployeLabel_nom}" for="nom" />
-                    <h:inputText id="nom" value="#{evalueremployeController.selected.nom}" title="#{bundle.CreateEvalueremployeTitle_nom}" />
+                    <h:inputText id="id" value="#{evalueremployeController.selected.id}" title="#{bundle.CreateEvalueremployeTitle_id}"  requiredMessage="#{bundle.CreateEvalueremployeRequiredMessage_id}"/>
                     <h:outputLabel value="#{bundle.CreateEvalueremployeLabel_qualite}" for="qualite" />
                     <h:inputText id="qualite" value="#{evalueremployeController.selected.qualite}" title="#{bundle.CreateEvalueremployeTitle_qualite}" />
                     <h:outputLabel value="#{bundle.CreateEvalueremployeLabel_rythmeTravail}" for="rythmeTravail" />
@@ -47,8 +45,10 @@
                     <h:inputText id="commentaire" value="#{evalueremployeController.selected.commentaire}" title="#{bundle.CreateEvalueremployeTitle_commentaire}" />
                     <h:outputLabel value="#{bundle.CreateEvalueremployeLabel_note}" for="note" />
                     <h:inputText id="note" value="#{evalueremployeController.selected.note}" title="#{bundle.CreateEvalueremployeTitle_note}" />
+                    <h:outputLabel value="nom" for="nom" />
+                    <h:inputText id="nom" value="#{evalueremployeController.selected.nom}" title="nom" />
                     <h:outputLabel value="#{bundle.CreateEvalueremployeLabel_empid}" for="empid" />
-                    <h:selectOneMenu id="empid" value="#{evalueremployeController.selected.empid}" title="#{bundle.CreateEvalueremployeTitle_empid}" >
+                    <h:selectOneMenu id="empid" value="#{evalueremployeController.selected.empid}" title="#{bundle.CreateEvalueremployeTitle_empid}"  requiredMessage="#{bundle.CreateEvalueremployeRequiredMessage_empid}">
                         <f:selectItems value="#{employeController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                 </h:panelGrid>

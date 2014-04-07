@@ -16,7 +16,9 @@
             <h:form>
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.EditEvalueremployeLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{evalueremployeController.selected.id}" title="#{bundle.EditEvalueremployeTitle_id}" required="true" requiredMessage="#{bundle.EditEvalueremployeRequiredMessage_id}"/>
+                    <h:inputText id="id" value="#{evalueremployeController.selected.id}" title="#{bundle.EditEvalueremployeTitle_id}" />
+                    <h:outputLabel value="#{bundle.EditEvalueremployeLabel_nom}" for="nom" />
+                    <h:inputText id="nom" value="#{evalueremployeController.selected.nom}" title="#{bundle.EditEvalueremployeTitle_nom}" />
                     <h:outputLabel value="#{bundle.EditEvalueremployeLabel_qualite}" for="qualite" />
                     <h:inputText id="qualite" value="#{evalueremployeController.selected.qualite}" title="#{bundle.EditEvalueremployeTitle_qualite}" />
                     <h:outputLabel value="#{bundle.EditEvalueremployeLabel_rythmeTravail}" for="rythmeTravail" />
@@ -46,7 +48,7 @@
                     <h:outputLabel value="#{bundle.EditEvalueremployeLabel_note}" for="note" />
                     <h:inputText id="note" value="#{evalueremployeController.selected.note}" title="#{bundle.EditEvalueremployeTitle_note}" />
                     <h:outputLabel value="#{bundle.EditEvalueremployeLabel_empid}" for="empid" />
-                    <h:selectOneMenu id="empid" value="#{evalueremployeController.selected.empid}" title="#{bundle.EditEvalueremployeTitle_empid}" required="true" requiredMessage="#{bundle.EditEvalueremployeRequiredMessage_empid}">
+                    <h:selectOneMenu id="empid" value="#{evalueremployeController.selected.empid}" title="#{bundle.EditEvalueremployeTitle_empid}" >
                         <f:selectItems value="#{employeController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                 </h:panelGrid>

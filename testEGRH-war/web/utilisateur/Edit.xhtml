@@ -7,37 +7,75 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.EditUtilisateurTitle}"></h:outputText>
+            <h:outputText value="#{bundle.CreateUtilisateurTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
-            <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditUtilisateurLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{utilisateurController.selected.id}" title="#{bundle.EditUtilisateurTitle_id}" />
-                    <h:outputLabel value="#{bundle.EditUtilisateurLabel_nom}" for="nom" />
-                    <h:inputText id="nom" value="#{utilisateurController.selected.nom}" title="#{bundle.EditUtilisateurTitle_nom}" />
-                    <h:outputLabel value="#{bundle.EditUtilisateurLabel_login}" for="login" />
-                    <h:inputText id="login" value="#{utilisateurController.selected.login}" title="#{bundle.EditUtilisateurTitle_login}" />
-                    <h:outputLabel value="#{bundle.EditUtilisateurLabel_motdepasse}" for="motdepasse" />
-                    <h:inputText id="motdepasse" value="#{utilisateurController.selected.motdepasse}" title="#{bundle.EditUtilisateurTitle_motdepasse}" />
-                    <h:outputLabel value="#{bundle.EditUtilisateurLabel_droit}" for="droit" />
-                    <h:selectOneMenu id="droit" value="#{utilisateurController.selected.droit}" title="#{bundle.EditUtilisateurTitle_droit}" >
+           
+            
+                      <div class="row">
+                <div class="col-md-12">
+                    <div class="content-box-large">
+                        <h:panelGroup id="messagePanel" layout="block">
+                            <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                        </h:panelGroup>
+                        <h:form>
+
+                            <fieldset >
+
+                                <legend>Modifier Utilisateur</legend><br></br>
+                                <div  class="well">
+                                        <h:commandLink  class="btn btn-lg btn-block btn-default" action="#{utilisateurController.prepareList}" value="Liste des utilisateurs" immediate="true"/>
+               </div> 
+                                <div class="span7">
+                                      <div class="row">
+
+                                            <div  class="col-sm-6">
+                                                <label>Nom </label>
+                                                <h:inputText id="nom" value="#{utilisateurController.selected.nom}" title="nom" class="form-control"  autocomplete="false"/>
+                                            </div> 
+
+
+                                            <div class="col-sm-6">
+                                                <label >Login </label>
+                                                <h:inputText id="prenom" value="#{utilisateurController.selected.login}" title="prenom" class="form-control" autocomplete="false"/>
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label>Mot de passe </label>
+
+                                                <h:inputText id="mdp" value="#{utilisateurController.selected.motdepasse}" title="mdp" class="form-control" autocomplete="false"/>
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <label>Droit </label>
+ <h:selectOneMenu id="droit" value="#{utilisateurController.selected.droit}" title="droit" class="form-control" >
                         <f:selectItems value="#{droitController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                </h:panelGrid>
-                <h:commandLink action="#{utilisateurController.update}" value="#{bundle.EditUtilisateurSaveLink}"/>
-                <br />
-                <br />
-                <h:link outcome="View" value="#{bundle.EditUtilisateurViewLink}"/>
-                <br />
-                <h:commandLink action="#{utilisateurController.prepareList}" value="#{bundle.EditUtilisateurShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.EditUtilisateurIndexLink}" />
-            </h:form>
+                                            </div>
+                                        </div> 
+ </div>
+
+<div class="col-md-12 ">
+                                    <br />
+                                        
+                                        <h:commandLink  class="btn btn-lg btn-block btn-primary" action="#{utilisateurController.update}" >Modifier </h:commandLink>
+                                    
+                                </div>
+
+                           
+                            </fieldset>
+
+                        </h:form>
+                    </div>
+                </div>
+
+            </div>
+        
+            
         </ui:define>
     </ui:composition>
 
